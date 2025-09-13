@@ -4,8 +4,8 @@ pipeline {
     APP_NAME = "myapp"
   }
   tools {
-    jdk 'jdk11'       // must match name in Global Tool Config
-    maven 'Maven3'    // must match name in Global Tool Config
+    jdk 'jdk21'
+    maven 'Maven 3.9.11'
   }
   parameters {
     booleanParam(name: 'RUN_DEPLOY', defaultValue: false, description: 'If true, pipeline will try to deploy after tests')
