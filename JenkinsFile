@@ -69,22 +69,6 @@ pipeline {
         }
       }
     }
-
-    // Optional: remote deploy using SSH credentials (comment/uncomment to use)
-    /*
-    stage('Remote Deploy (SSH)') {
-      when { expression { return params.RUN_DEPLOY } }
-      steps {
-        // credentialsId must match an SSH private-key credential you add in Jenkins
-        withCredentials([sshUserPrivateKey(credentialsId: 'ssh-deploy-key', keyFileVariable: 'SSH_KEY', usernameVariable: 'SSH_USER')]) {
-          sh '''
-            scp -i "$SSH_KEY" target/*.jar ${SSH_USER}@your.remote.server:/opt/apps/
-            ssh -i "$SSH_KEY" ${SSH_USER}@your.remote.server 'systemctl restart myapp || nohup java -jar /opt/apps/myapp.jar &'
-          '''
-        }
-      }
-    }
-    */
   }
 
   post {
